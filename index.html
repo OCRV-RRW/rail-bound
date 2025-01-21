@@ -9,6 +9,7 @@
     <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
     <script src="Build/WebLogicDepo.loader.js"></script>
     <script>
+      const button = document.getElementById('fullscreenButton');
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
@@ -28,13 +29,19 @@
         dataUrl: "Build/WebLogicDepo.data",
         frameworkUrl: "Build/WebLogicDepo.framework.js",
         codeUrl: "Build/WebLogicDepo.wasm",
-        streamingAssetsUrl: "StreamingAssets",
+        streamingAssetsUrl: "Build/StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Cel Shading Test",
         productVersion: "0.1",
         matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
+      }).then((unityInstance) => {
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
     </script>
   </body>
 </html>
