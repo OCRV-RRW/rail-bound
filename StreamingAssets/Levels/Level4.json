@@ -1,0 +1,49 @@
+{
+  "availableRoads": 6,
+  "fieldModel": {
+    "columns": 5,
+    "rows": 5,
+    "cells": [
+      { "x": 0, "y": 0, "state": "empty" },
+      { "x": 0, "y": 1, "state": "empty" },
+      { "x": 0, "y": 2, "state": "empty" },
+      { "x": 0, "y": 3, "state": "empty" },
+      { "x": 0, "y": 4, "state": "empty" },
+
+      { "x": 1, "y": 0, "state": "empty" },
+      { "x": 1, "y": 2, "state": "empty" },
+      { "x": 1, "y": 1, "state": "spawn point", "direction": 0, "spawnId": 1 },
+      { "x": 1, "y": 3, "state": "empty" },
+      { "x": 1, "y": 4, "state": "empty" },
+
+      { "x": 2, "y": 0, "state": "empty" },
+      { "x": 2, "y": 1, "state": "empty" },
+      { "x": 2, "y": 2, "state": "empty" },
+      { "x": 2, "y": 3, "state": "empty" },
+      { "x": 2, "y": 4, "state": "finish point", "direction": 180, "properties": { "finishId": 1 } },
+
+      { "x": 3, "y": 0, "state": "empty" },
+      { "x": 3, "y": 2, "state": "empty" },
+      { "x": 3, "y": 1, "state": "spawn point", "direction": 0, "spawnId": 2 },
+      { "x": 3, "y": 3, "state": "empty" },
+      { "x": 3, "y": 4, "state": "empty" },
+
+      { "x": 4, "y": 0, "state": "empty" },
+      { "x": 4, "y": 1, "state": "empty" },
+      { "x": 4, "y": 2, "state": "empty" },
+      { "x": 4, "y": 3, "state": "empty" },
+      { "x": 4, "y": 4, "state": "empty" }
+    ]
+  },
+  "rollingModel": {
+    "wagons": [
+      { "spawnId": 1, "speed": 1.5, "type": "Wagon" },
+      { "spawnId": 2, "speed": 1.5, "type": "Wagon" }
+    ],
+    "train": {
+      "type": "Train",
+      "speed": 1.5,
+      "wagonCount": 2
+    }
+  }
+}
