@@ -99,9 +99,9 @@
 
     loadingBar.style.display = "block";
     window.addEventListener('message', event => {
-        console.log("Get in Unity mess:", event)
+        console.log("Get in Unity mess:", event.data)
         if(unity === null) return;
-        // unity.SetFullscreen(1);
+        unity.SetFullscreen(1);
     });
 
     var script = document.createElement("script");
@@ -110,7 +110,7 @@
         createUnityInstance(canvas, config, (progress) => {
             var event = {}
             event.origin = "*"
-            window.top.postMessage(progress, event)
+            window.top.top.postMessage(progress, event)
             progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
             unity = unityInstance;
