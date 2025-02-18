@@ -94,6 +94,7 @@
         createUnityInstance(canvas, config, (progress) => {
             var event = {}
             event.origin = "*"
+            event.data = {}
             event.data.progress = progress
             window.top.postMessage("load-progress", event)
             progressBarFull.style.width = 100 * progress + "%";
