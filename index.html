@@ -92,12 +92,15 @@
     script.src = loaderUrl;
     script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-            window.top.postMessage("load-progress", progress)
+            var event = {}
+            event.origin = "*"
+            event.data.progress = progress
+            window.top.postMessage("load-progress", event)
             progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
             loadingBar.style.display = "none";
-            window.addEventListener('fullscreen', value => {
-                unityInstance.SetFullscreen(value);
+            window.addEventListener('fullscreen', event => {
+                unityInstance.SetFullscreen(event.data.value);
             });
         }).catch((message) => {
             alert(message);
