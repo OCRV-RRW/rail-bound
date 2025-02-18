@@ -112,7 +112,7 @@
         }).then((unityInstance) => {
             unity = unityInstance;
             loadingBar.style.display = "none";
-            window.top.postMessage(unity, "*")
+            window.top.postMessage("loaded", "*")
         }).catch((message) => {
             alert(message);
         });
