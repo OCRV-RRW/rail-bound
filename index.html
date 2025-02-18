@@ -107,13 +107,12 @@
     script.src = loaderUrl;
     script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-            var event = {}
-            event.origin = "*"
-            window.top.top.postMessage(progress, event)
+            window.top.postMessage(progress)
             progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
             unity = unityInstance;
             loadingBar.style.display = "none";
+            window.top.postMessage(unity, "*")
         }).catch((message) => {
             alert(message);
         });
